@@ -8,7 +8,7 @@ shinyUI(fluidPage(theme = shinytheme("united"),
   
   sidebarLayout(
     sidebarPanel(
-      shiny::selectizeInput("ingene", "Choose a gene:", choices = names(lookup), selected = "A1BG"),
+      selectizeInput("ingene", "Choose a gene:", choices = choosenames, selected = "HBB"),
       helpText(h4("Data source:")),
       helpText("Linsley PS, Speake C, Whalen E, Chaussabel D.", em("Copy number loss of the interferon gene cluster in                     melanomas is linked to reduced T cell infiltrate and poor patient prognosis."), 
                "PLoS One 2014 Oct 14;9(10):e109760."),
@@ -18,7 +18,9 @@ shinyUI(fluidPage(theme = shinytheme("united"),
     mainPanel(
        plotOutput("theplot"),
        helpText("Expression values were normalized using the TMM (trimmed mean of m-value) method.",
-                "This means that counts have been normalized by library size but not gene length.")
+                "This means that counts have been normalized by library size but not gene length.", 
+                "Plot shows Tukey boxplots: whiskers extend to the highest/lowest value within the ",
+                "box limit +/- 1.5 * IQR. Samples beyond that range are plotted as points.")
     )
   )
 ))
