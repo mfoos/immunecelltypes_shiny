@@ -8,7 +8,7 @@ shinyUI(fluidPage(theme = shinytheme("united"),
   
   sidebarLayout(
     sidebarPanel(
-      selectizeInput("ingene", "Choose a gene:", choices = choosenames, selected = "HBB"),
+      selectizeInput("ingene", "Choose a gene:", choices = NULL, selected = "HBB"),
       helpText(h4("Data source:")),
       helpText("Linsley PS, Speake C, Whalen E, Chaussabel D.", em("Copy number loss of the interferon gene cluster in                     melanomas is linked to reduced T cell infiltrate and poor patient prognosis."), 
                "PLoS One 2014 Oct 14;9(10):e109760."),
